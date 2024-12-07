@@ -1,0 +1,12 @@
+<div class="update-product">
+    <h2>Update Product</h2>
+    <form (ngSubmit)="updateProduct()">
+      <label>Name:</label>
+      <input [(ngModel)]="product.name" name="name" required />
+      <label>Price:</label>
+      <input type="number" [(ngModel)]="product.price" name="price" required />
+      <label>Description:</label>
+      <textarea [(ngModel)]="product.description" name="description"></textarea>
+      <button type="submit">Update</button>
+    </form>
+  </div>

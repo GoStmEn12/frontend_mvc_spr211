@@ -1,17 +1,30 @@
-<div>
-  <h1>users</h1>
-  <div>
-    <input type="number" [(ngModel)]="newUser.id" placeholder="id">
-    <input type="text" [(ngModel)]="newUser.name" placeholder="name">
-    <input type="text" [(ngModel)]="newUser.email" placeholder="email">
-    <input type="text" [(ngModel)]="newUser.age" placeholder="age">
-    <button (click)="addUser()">add user</button>
-  </div>
-  <ul>
-    <li *ngFor="let u of users">
-      id: {{ u.id }}, name: {{ u.name }}, email: {{ u.email }}, age: {{ u.age }}
-      <button (click)="updateUser(u.id)">update</button>
-      <button (click)="deleteUser(u.id)">delete</button>
-    </li>
-  </ul>
+<router-outlet></router-outlet>
+<div class="container mt-4">
+    <div class="products">
+        <h2 class="text-center mb-4">List Products</h2>
+        <button routerLink="/create" class="btn btn-primary mb-3">Add Product</button>
+        <ul class="list-unstyled">
+            <li *ngFor="let product of products" class="mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">ID: {{ product.id }}</h5>
+                        <p class="card-text"><strong>Name:</strong> {{ product.name }}</p>
+                        <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+                        <p class="card-text"><strong>Description:</strong> {{ product.description }}</p>
+                        <div class="d-flex justify-content-between">
+                            <button [routerLink]="['/update-product', product.id]" class="btn btn-warning">
+                                Update
+                            </button>
+                            <button [routerLink]="['/details', product.id]" class="btn btn-info">
+                                Details
+                            </button>
+                            <button (click)="deleteProduct(product.id)" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
