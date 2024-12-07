@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { AppRoutingModule } from './app.routes'; // Маршрутизация
-import { HomeComponent } from './home/home.component'
-import { CreateProductComponent } from "./components/create-product/create-product.component";
-import { ProductDetailsComponent } from "./components/product-details/product-details.component";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
 //   imports: [ AppRoutingModule],
-  imports: [ HomeComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

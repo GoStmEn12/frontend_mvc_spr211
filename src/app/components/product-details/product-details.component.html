@@ -1,8 +1,18 @@
-<div class="product-details">
+<!-- <div class="product-details">
     <h2>Product Details</h2>
     <p><strong>ID:</strong> {{ product.id }}</p>
     <p><strong>Name:</strong> {{ product.name }}</p>
     <p><strong>Price:</strong> {{ product.price }}</p>
     <p><strong>Description:</strong> {{ product.description }}</p>
     <button routerLink="/home">Back to List</button>
+  </div> -->
+  <div class="details-container">
+    <h2>Product Details</h2>
+    <p><span>ID:</span> {{product.id}}</p>
+    <p><span>Name:</span> {{product.name}}</p>
+    <p><span>Price:</span> {{product.price}}</p>
+    <p><span>Description:</span> {{product.description}}</p>
+    <div class="button-group">
+      <button routerLink="/">Back</button>
+    </div>
   </div>

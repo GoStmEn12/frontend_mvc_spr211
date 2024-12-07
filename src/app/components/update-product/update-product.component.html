@@ -1,12 +1,19 @@
-<div class="update-product">
+<div class="form-container">
     <h2>Update Product</h2>
-    <form (ngSubmit)="updateProduct()">
-      <label>Name:</label>
-      <input [(ngModel)]="product.name" name="name" required />
-      <label>Price:</label>
-      <input type="number" [(ngModel)]="product.price" name="price" required />
-      <label>Description:</label>
-      <textarea [(ngModel)]="product.description" name="description"></textarea>
-      <button type="submit">Update</button>
-    </form>
+    <div class="form-group">
+      <label for="name">Product Name</label>
+      <input type="text" id="name" [(ngModel)]="product.name" placeholder="Enter product name" />
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" id="price" [(ngModel)]="product.price" placeholder="Enter product price" />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" [(ngModel)]="product.description" placeholder="Enter product description"></textarea>
+    </div>
+    <div class="button-group">
+      <button (click)="updateProduct()" routerLink="/">Save</button>
+      <button class="cancel" routerLink="/">Cancel</button>
+    </div>
   </div>
