@@ -15,13 +15,18 @@ export class ProductDetailsComponent implements OnInit {
   product: any;
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService 
+    private productService: ProductService
   ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
-    this.productService.getProductById(id).subscribe((data) => {
-      this.product = data;
-    });
+    this.productService.getProductById(id).subscribe({
+        next: (data) => {
+          this.product = data; // Присваиваем данные продукту
+        },
+        error: (error) => {
+          console.error('Ошибка при получении продукта:', error);
+        }
+      });
   }
 }

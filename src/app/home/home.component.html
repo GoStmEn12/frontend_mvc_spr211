@@ -1,30 +1,32 @@
 <router-outlet></router-outlet>
 <div class="container mt-4">
-    <div class="products">
-        <h2 class="text-center mb-4">List Products</h2>
-        <button routerLink="/create" class="btn btn-primary mb-3">Add Product</button>
-        <ul class="list-unstyled">
-            <li *ngFor="let product of products" class="mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">ID: {{ product.id }}</h5>
-                        <p class="card-text"><strong>Name:</strong> {{ product.name }}</p>
-                        <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
-                        <p class="card-text"><strong>Description:</strong> {{ product.description }}</p>
-                        <div class="d-flex justify-content-between">
-                            <button [routerLink]="['/update-product', product.id]" class="btn btn-warning">
-                                Update
-                            </button>
-                            <button [routerLink]="['/details', product.id]" class="btn btn-info">
-                                Details
-                            </button>
-                            <button (click)="deleteProduct(product.id)" class="btn btn-danger">
-                                Delete
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
+  <div class="products">
+    <h2 class="text-center mb-4">Список Товаров</h2>
+    <button routerLink="/create" class="btn btn-primary mb-3">Добавить товар</button>
+    <ul class="list-unstyled">
+      <li *ngFor="let product of products" class="mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">ID: {{ product?.id }}</h5>
+            <p class="card-text"><strong>Name:</strong> {{ product.name }}</p>
+            <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+            <p class="card-text"><strong>Description:</strong> {{ product.description }}</p>
+            <div class="d-flex justify-content-between">
+              <button [routerLink]="['/update-product', product.id]" class="btn btn-warning">
+                Update
+              </button>
+              <button [routerLink]="['/details', product.id]" class="btn btn-info">
+                Details
+              </button>
+              <button (click)="deleteProduct(product.id)" class="btn btn-danger">
+                Delete
+              </button>
+              <!-- Исправлено добавление товара в корзину -->
+              <button (click)="addToCart(product)" class="btn btn-info">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

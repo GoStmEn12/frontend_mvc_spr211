@@ -1,0 +1,9 @@
+
+<div class="container">
+    <h2>Регистрация</h2>
+    <form (ngSubmit)="onRegister()">
+      <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" required />
+      <input type="password" placeholder="Пароль" [(ngModel)]="user.password" name="password" required />
+      <button type="submit">Зарегистрироваться</button>
+    </form>
+  </div>

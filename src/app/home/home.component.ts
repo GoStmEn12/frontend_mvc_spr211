@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {Product} from "../models/Product";
 import { RouterModule } from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +15,16 @@ import { RouterModule } from '@angular/router';
 })
 export class HomeComponent {
     products:Product[]=[]
-  constructor(private productService:ProductService ) {}
+
+  constructor(private productService:ProductService, private cartService: CartService ) {}
   ngOnInit(){
     this.loadProducts()
+  }
+
+  addToCart(product: any) {
+    // Добавляем товар в корзину через CartService
+    this.cartService.addToCart(product);
+    alert(`${product.name} добавлен в корзину!`);
   }
   loadProducts() {
     this.products = []; // Очистка перед загрузкой новых данных
